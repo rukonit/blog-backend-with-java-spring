@@ -8,6 +8,7 @@ public class BlogRestApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BlogRestApiApplication.class, args);
+
 	}
 
 }
