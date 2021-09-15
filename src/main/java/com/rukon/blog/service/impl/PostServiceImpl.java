@@ -6,6 +6,7 @@ import com.rukon.blog.payload.PostDto;
 import com.rukon.blog.payload.PostResponse;
 import com.rukon.blog.repository.PostRepository;
 import com.rukon.blog.service.PostService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Page;
@@ -19,6 +20,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements PostService {
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Autowired
     private PostRepository postRepository;
@@ -77,7 +81,7 @@ public class PostServiceImpl implements PostService {
         post.setTitle(postDto.getTitle());
         post.setDescription(postDto.getDescription());
         post.setContent(postDto.getContent());
-        Post updatedPost = postRepository.saveAndFlush(post);
+        Post updatedPost = postRepository.save(post);
 
         return mapToDto(updatedPost);
     }
@@ -90,19 +94,12 @@ public class PostServiceImpl implements PostService {
 
     // convert entity into dto
     private PostDto mapToDto(Post post) {
-        PostDto postDto = new PostDto();
-        postDto.setId(post.getId());
-        postDto.setTitle(post.getTitle());
-        postDto.setDescription(post.getDescription());
-        postDto.setContent(post.getContent());
+        PostDto postDto = modelMapper.map(post, PostDto.class);
         return postDto;
     }
 
     private Post mapToEntitiy(PostDto postDto) {
-        Post post = new Post();
-        post.setTitle(postDto.getTitle());
-        post.setDescription(postDto.getDescription());
-        post.setContent(postDto.getContent());
+        Post post = modelMapper.map(postDto, Post.class);
         return post;
     }
 }
