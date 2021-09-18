@@ -8,6 +8,8 @@ import com.rukon.blog.payload.SignUpDto;
 import com.rukon.blog.repository.RoleRepository;
 import com.rukon.blog.repository.UserRepository;
 import com.rukon.blog.security.JwtTokenProvider;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 import java.util.Collections;
-
+@Api(value = "Auth controller exposes sigin and signup REST APIs")
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthController {
@@ -48,6 +50,7 @@ public class AuthController {
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
 
+    @ApiOperation(value = "REST API to Login or Signin user to Blog application")
     @PostMapping("/login")
     public ResponseEntity<JWTAuthResponse> authenticateUser(@RequestBody LoginDto loginDto) {
       Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDto.getUsernameOrEmail(),
@@ -60,6 +63,7 @@ public class AuthController {
 
     }
 
+    @ApiOperation(value = "REST API to Register or Signin user to Blog application")
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody SignUpDto signUpDto) {
         // add check for username exists

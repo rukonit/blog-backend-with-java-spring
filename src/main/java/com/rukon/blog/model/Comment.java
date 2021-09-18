@@ -2,9 +2,11 @@ package com.rukon.blog.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.*;
+
 
 @Getter
 @Setter
@@ -13,6 +15,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "comments")
 public class Comment {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

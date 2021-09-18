@@ -2,11 +2,13 @@ package com.rukon.blog.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+
 
 @Getter
 @Setter
