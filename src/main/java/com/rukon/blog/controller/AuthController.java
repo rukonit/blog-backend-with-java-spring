@@ -66,6 +66,7 @@ public class AuthController {
     @ApiOperation(value = "REST API to Register or Signin user to Blog application")
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody SignUpDto signUpDto) {
+        System.out.println(signUpDto.getEmail());
         // add check for username exists
         if(userRepository.existsByUsername(signUpDto.getUsername())){
             return new ResponseEntity<>("Username is already exists", HttpStatus.BAD_REQUEST);

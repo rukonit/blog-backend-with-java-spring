@@ -17,7 +17,11 @@ The purpose of this project is to demonstrate the complete REST API Development.
 
 ## Features
 
-Visit [http://localhost:8080/swagger-ui/](http://localhost:8080/swagger-ui/) browse and test the REST API.
+Visit [http://ec2-18-223-188-247.us-east-2.compute.amazonaws.com:8000/swagger-ui/](http://ec2-18-223-188-247.us-east-2.compute.amazonaws.com:8000/swagger-ui/) to browse api documentation and test the REST API.
+
+API Base URI: [http://ec2-18-223-188-247.us-east-2.compute.amazonaws.com:8000](http://ec2-18-223-188-247.us-east-2.compute.amazonaws.com:8000)
+
+Demo username: demo and password: demo
 
 ## Future improvements
 - Image upload
@@ -30,7 +34,7 @@ Please feel free to contribute to the project, and if any bug is found, please c
 
 ## Development server
 
-Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
+Navigate to `http://ec2-18-223-188-247.us-east-2.compute.amazonaws.com:8000/api/v1`. The app will automatically reload if you change any of the source files.
 
 ## License
 
